@@ -28,6 +28,8 @@ public class HomePage {
 	@FindBy(id = "pass") WebElement password;
 
 	@FindBy(css = "input[value='Log In']") WebElement logIn;
+	
+	@FindBy(xpath="//span[.='Collect in:']") WebElement noCoins;
 
 	public void clickSignIn() {
 		signIn.click();
@@ -37,14 +39,24 @@ public class HomePage {
 		Helper.swithcWindow(driver);
 
 		Helper.waitForElementByID(driver, "freeCoins");
-
-		freeCoins.click();
 		
-		Helper.waitAsec();
-		Helper.waitAsec();
-		Helper.waitAsec();
-		Helper.waitAsec();
-		Helper.waitAsec();
+		if (Helper.checkIfElementExists(noCoins))
+		{
+			for (int i=0; i<40; i++)
+			{
+				Helper.waitAsec();
+			}
+			getFreeCoins();
+		}
+		else
+		{
+			freeCoins.click();
+			
+			for (int i=0; i<5; i++)
+			{
+				Helper.waitAsec();
+			}
+		}	
 	}
 
 	public void getFreePorions() {
