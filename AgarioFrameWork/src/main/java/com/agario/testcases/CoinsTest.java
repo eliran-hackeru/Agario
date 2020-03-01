@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.support.PageFactory;
 import com.agario.pages.BaseClass;
 import com.agario.pages.HomePage;
-import com.agario.utility.Helper;
 
 public class CoinsTest extends BaseClass
 {

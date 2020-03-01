@@ -1,12 +1,8 @@
 package com.agario.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.agario.utility.Helper;
 
 public class HomePage {
@@ -40,22 +36,11 @@ public class HomePage {
 
 		Helper.waitForElementByID(driver, "freeCoins");
 		
-		if (Helper.checkIfElementExists(noCoins))
+		freeCoins.click();
+		
+		for (int i=0; i<5; i++)
 		{
-			for (int i=0; i<40; i++)
-			{
-				Helper.waitAsec();
-			}
-			getFreeCoins();
-		}
-		else
-		{
-			freeCoins.click();
-			
-			for (int i=0; i<5; i++)
-			{
-				Helper.waitAsec();
-			}
+			Helper.waitAsec();
 		}	
 	}
 
